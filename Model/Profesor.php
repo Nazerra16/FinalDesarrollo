@@ -71,14 +71,6 @@ class Profesor extends Conexion
         }
         return $materias;
     }
-    public function quitarMaterias()
-    {
-        $this->conectar();
-        $pre = mysqli_prepare($this->con, "DELETE FROM profesor_materia WHERE profesor_id = ?");
-        $pre->bind_param("i", $this->id);
-        $pre->execute();
-    }
-
     public function asignarMateria($materia_id)
     {
         $this->conectar();

@@ -20,10 +20,12 @@
         .bs-example {
             margin: 20px;
         }
+
         nav {
             background-color: #808080;
             padding: 10px;
         }
+
         nav a {
             color: white;
             text-decoration: none;
@@ -32,6 +34,7 @@
             border-radius: 5px;
             transition: background-color 0.3s;
         }
+
         nav a:hover {
             background-color: #666;
         }
@@ -39,77 +42,78 @@
 </head>
 
 <body>
-<body>
-<nav>
-    <a href="indexGrafico.php">Inicio</a>
-    <a href="indexAlumno.php">Alumnos</a>
-    <a href="indexProfesor.php">Profesores</a>
-    <a href="indexMateria.php">Materias</a>
-</nav>
-    <div class="bs-example">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="page-header clearfix">
-                        <a href="createAlumno.php" class="btn btn-success float-right">Agregar Alumno</a>
-                        <h2 class="pull-left">Lista de Alumnos</h2>
-                    </div>
-                    <table id="listaAlumnos" class="table table-sm table-striped table-bordered" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Nombre</th>
-                                <th>Apellido</th>
-                                <th>Fecha Nacimiento</th>
-                                <th>Acciones</th>
 
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            <?php
-                            foreach ($alumnos as $alumno) { ?>
+    <body>
+        <nav>
+            <a href="indexGrafico.php">Inicio</a>
+            <a href="indexAlumno.php">Alumnos</a>
+            <a href="indexProfesor.php">Profesores</a>
+            <a href="indexMateria.php">Materias</a>
+        </nav>
+        <div class="bs-example">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="page-header clearfix">
+                            <a href="createAlumno.php" class="btn btn-success float-right">Agregar Alumno</a>
+                            <h2 class="pull-left">Lista de Alumnos</h2>
+                        </div>
+                        <table id="listaAlumnos" class="table table-sm table-striped table-bordered" style="width:100%">
+                            <thead>
                                 <tr>
-                                    <td><?= $alumno->id; ?></td>
-                                    <td><?= $alumno->nombre; ?></td>
-                                    <td><?= $alumno->apellido; ?></td>
-                                    <td><?= date('d/m/Y', strtotime($alumno->fecnac)); ?></td>
-                                    <td>
-                                        <div class="btn-group">
-                                            <a href="editarAlumno.php?id=<?= $alumno->id; ?>"
-                                                class="btn btn-warning btn-sm">Editar</a>
-                                            <a href="eliminarAlumno.php?id=<?= $alumno->id; ?>"
-                                                class="btn btn-danger btn-sm">Eliminar</a>
-                                            <a href="indexAlumnoMaterias.php?id=<?= $alumno->id; ?>"
-                                                class="btn btn-primary btn-sm">Asignar Materias</a>
+                                    <th>ID</th>
+                                    <th>Nombre</th>
+                                    <th>Apellido</th>
+                                    <th>Fecha Nacimiento</th>
+                                    <th>Acciones</th>
 
-                                        </div>
-                                    </td>
                                 </tr>
+                            </thead>
+                            <tbody>
 
-                            <?php }
+                                <?php
+                                foreach ($alumnos as $alumno) { ?>
+                                    <tr>
+                                        <td><?= $alumno->id; ?></td>
+                                        <td><?= $alumno->nombre; ?></td>
+                                        <td><?= $alumno->apellido; ?></td>
+                                        <td><?= date('d/m/Y', strtotime($alumno->fecnac)); ?></td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <a href="editarAlumno.php?id=<?= $alumno->id; ?>"
+                                                    class="btn btn-warning btn-sm">Editar</a>
+                                                <a href="eliminarAlumno.php?id=<?= $alumno->id; ?>"
+                                                    class="btn btn-danger btn-sm">Eliminar</a>
+                                                <a href="indexAlumnoMaterias.php?id=<?= $alumno->id; ?>"
+                                                    class="btn btn-primary btn-sm">Asignar Materias</a>
 
-                            ?>
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <th>ID</th>
-                                <th>Nombre</th>
-                                <th>Apellido</th>
-                                <th>Fecha Nacimiento</th>
-                                <th>Acciones</th>
-                            </tr>
-                        </tfoot>
-                    </table>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                <?php }
+
+                                ?>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nombre</th>
+                                    <th>Apellido</th>
+                                    <th>Fecha Nacimiento</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</body>
-<script>
-    $(document).ready(function () {
-        $('#listaAlumnos').DataTable({});
-    });
-</script>
+    </body>
+    <script>
+        $(document).ready(function () {
+            $('#listaAlumnos').DataTable({});
+        });
+    </script>
 
 </html>

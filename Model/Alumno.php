@@ -66,14 +66,6 @@ class Alumno extends Conexion {
         return $materias;
     }
 
-    public function quitarMaterias()
-    {
-        $this->conectar();
-        $pre = mysqli_prepare($this->con, "DELETE FROM alumno_materia WHERE alumno_id = ?");
-        $pre->bind_param("i", $this->id);
-        $pre->execute();
-    }
-
     public function asignarMateria($materia_id)
     {
         $this->conectar();

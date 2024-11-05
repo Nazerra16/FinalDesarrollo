@@ -8,7 +8,7 @@ $todasLasMaterias = Materia::all();
 
 if (isset($_POST['guardarMaterias'])) {
 
-    $alumno->quitarMaterias();
+    $alumno->eliminarMaterias();
     
     if (isset($_POST['materias'])) {
         foreach ($_POST['materias'] as $materia_id) {

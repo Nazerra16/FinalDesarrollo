@@ -2,15 +2,14 @@
 require_once __DIR__ . '/../Model/Alumno.php';
 require_once __DIR__ . '/../Model/Materia.php';
 
-$id = $_GET['id']; //obtenemos la id del alumno por url
-$profesor = Profesor::getById($id); //lo buscamos en la bd por esa id
-$todasLasMaterias = Materia::all(); //mostramos una lista de materias
+$id = $_GET['id'];
+$profesor = Profesor::getById($id);
+$todasLasMaterias = Materia::all();
 
 if (isset($_POST['guardarMaterias'])) {
-    //si se aprieta el boton, primero se borran todas las materias del alumno por el metodo
-    $profesor->quitarMaterias();
 
-    //si hay  materias seleccionadas, se asignan
+    $profesor->eliminarMaterias();
+
     if (isset($_POST['materias'])) {
         foreach ($_POST['materias'] as $profesor_id) {
             $profesor->asignarMateria($profesor_id);
